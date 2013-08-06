@@ -1,0 +1,31 @@
+{
+    "name": "cometcult/credit-bundle",
+    "type": "symfony-bundle",
+    "description": "User credit bundle for use with Symfony2",
+    "keywords": ["credit", "balance"],
+    "homepage": "https://github.com/cometcult/CometCultCreditsBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "JRL",
+            "email": "jrl@thecometcult.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2"
+    },
+    "require-dev": {
+        "symfony/framework-bundle": ">=2.2,<2.3-dev",
+        "phpspec/phpspec": "dev-master",
+        "doctrine/mongodb-odm": "1.0.*@dev",
+        "doctrine/mongodb-odm-bundle": "3.0.*@dev"
+    },
+    "autoload": {
+        "psr-0": { "CometCult\\CreditsBundle": "" }
+    },
+    "minimum-stability": "dev",
+    "config": {
+      "bin-dir": "bin"
+    },
+    "target-dir": "CometCult/CreditsBundle"
+}
