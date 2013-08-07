@@ -9,6 +9,10 @@
         {
             "name": "JRL",
             "email": "jrl@thecometcult.com"
+        },
+        {
+          "name": "Karol Sójko",
+          "email": "ks@thecometcult.com"
         }
     ],
     "require": {
