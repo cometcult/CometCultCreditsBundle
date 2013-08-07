@@ -18,7 +18,7 @@ Just add to your composer.json file:
 ```json
 {
     "require": {
-        "cometcult/credits-bundle": "dev-master"
+        "cometcult/credit-bundle": "dev-master"
     }
 }
 ```
