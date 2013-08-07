@@ -2,6 +2,7 @@ CometCultCreditsBundle
 ======================
 
 Symfony 2 Bundle for storing user credits/points
+
 Currently supports only Doctrine MongoDB
 
 Installation
@@ -29,7 +30,7 @@ public function registerBundles()
 {
     return array(
         // ...
-        new CometCult\BraintreeBundle\CometCultCreditsBundle(),
+        new CometCult\CreditsBundle\CometCultCreditsBundle(),
         // ...
     );
 }
