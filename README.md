@@ -1,6 +1,8 @@
 CometCultCreditsBundle
 ======================
 
+[![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/cometcult/CometCultCreditsBundle/badges/quality-score.png?s=21840747a37218407d58828101172118410dc186)](https://scrutinizer-ci.com/g/cometcult/CometCultCreditsBundle/)
+
 Symfony 2 Bundle for storing user credits/points
 
 Currently supports only Doctrine MongoDB
