@@ -1,0 +1,12 @@
+parameters:
+  comet_cult_credits.manager.class: CometCult\CreditsBundle\Manager\CreditsManager
+
+services:
+  comet_cult.document_manager:
+    class: Doctrine\ODM\MongoDB\DocumentManager
+    factory_service: doctrine_mongodb
+    factory_method: getManager
+    public: false
+  comet_cult_credits.manager:
+    class:  "%comet_cult_credits.manager.class%"
+    arguments: ["@comet_cult.document_manager"]
