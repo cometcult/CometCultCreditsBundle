@@ -20,7 +20,8 @@ class Credit
     protected $amount;
 
     /**
-     * @MongoDB\String @UniqueIndex
+     * @MongoDB\String
+     * @MongoDB\UniqueIndex
      */
     protected $ownerId;
 
