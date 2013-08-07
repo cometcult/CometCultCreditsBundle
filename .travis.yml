@@ -5,10 +5,13 @@ php:
   - 5.4
 
 before_script:
+    - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
     - curl -s http://getcomposer.org/installer | php
     - php composer.phar install --dev
 
 script: bin/phpspec run -fpretty --verbose
 
 notifications:
-    email:  "jrl@thecometcult.com"
+    email:
+        - jrl@thecometcult.com
+        - ks@thecometcult.com
