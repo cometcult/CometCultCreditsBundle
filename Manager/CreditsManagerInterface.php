@@ -43,4 +43,18 @@ interface CreditsManagerInterface
      * @return Credit
      */
     public function subtractCredit($amount, $ownerId);
+
+    /**
+     * @param string $ownerId
+     *
+     * @return Credit
+     */
+    public function getCreditByOwnerId($ownerId);
+
+    /**
+     * @param Credit $credit
+     *
+     * @return Credit
+     */
+    public function reloadCredit(Credit $credit);
 }
