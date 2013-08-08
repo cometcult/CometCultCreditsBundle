@@ -53,6 +53,20 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
+     * Reload credit
+     *
+     * @param Credit $credit
+     *
+     * @return Credit
+     */
+    public function reloadCredit(Credit $credit)
+    {
+        $this->dm->refresh($credit);
+
+        return $credit;
+    }
+
+    /**
      * Get curent credit balance
      *
      * @param string $ownerId
@@ -112,7 +126,14 @@ class CreditsManager implements CreditsManagerInterface
         return $credit;
     }
 
-    private function getCreditByOwnerId($ownerId)
+    /**
+     * Get credit by ownerId
+     *
+     * @param string $ownerId
+     *
+     * @return Credit
+     */
+    public function getCreditByOwnerId($ownerId)
     {
         $credit = $this->dm
             ->getRepository('CometCultCreditsBundle:Credit')

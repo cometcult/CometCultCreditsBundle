@@ -204,4 +204,40 @@ class CreditsManagerSpec extends ObjectBehavior
             ->subtractCredit(50, '123abc')
             ->shouldHaveType('CometCult\CreditsBundle\Document\Credit');
     }
+
+    /**
+     * @param CometCult\CreditsBundle\Document\Credit $credit
+     * @param Doctrine\ODM\MongoDB\DocumentManager    $documentManager
+     * @param Doctrine\ODM\MongoDB\DocumentRepository $creditRepository
+     */
+    function it_should_return_credit_by_owner_id($credit, $documentManager, $creditRepository)
+    {
+        $documentManager
+            ->getRepository('CometCultCreditsBundle:Credit')
+            ->shouldBeCalled()
+            ->willReturn($creditRepository);
+
+        $creditRepository
+            ->findOneBy(array('ownerId' => '123abc'))
+            ->shouldBeCalled()
+            ->willReturn($credit);
+
+        $this
+            ->getCreditByOwnerId('123abc')
+            ->shouldReturn($credit);
+    }
+
+    /**
+     * @param CometCult\CreditsBundle\Document\Credit $credit
+     * @param Doctrine\ODM\MongoDB\DocumentManager    $documentManager
+     */
+    function it_should_reload_credit($credit, $documentManager)
+    {
+        $documentManager
+            ->refresh($credit)
+            ->shouldBeCalled();
+        $this
+            ->reloadCredit($credit)
+            ->shouldHaveType('CometCult\CreditsBundle\Document\Credit');
+    }
 }
