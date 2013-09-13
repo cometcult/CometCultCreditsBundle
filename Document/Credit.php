@@ -46,7 +46,7 @@ class Credit
      */
     public function getOwnerId()
     {
-        return $this->ownerId();
+        return $this->ownerId;
     }
 
     /**
