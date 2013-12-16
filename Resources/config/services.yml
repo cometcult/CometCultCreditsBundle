@@ -1,5 +1,9 @@
 parameters:
   comet_cult_credits.manager.class: CometCult\CreditsBundle\Manager\CreditsManager
+  comet_cult_credits.balance_checker.class: CometCult\CreditsBundle\Balance\BalanceChecker
+  comet_cult_credits.manager.parameters:
+    min_threshold: %comet_cult_credits.min_threshold%
+    max_threshold: %comet_cult_credits.max_threshold%
 
 services:
   comet_cult.document_manager:
@@ -10,3 +14,6 @@ services:
   comet_cult_credits.manager:
     class:  "%comet_cult_credits.manager.class%"
     arguments: ["@comet_cult.document_manager"]
+  comet_cult_credits.balance_checker:
+    class:  "%comet_cult_credits.balance_checker.class%"
+    arguments: ["@comet_cult.document_manager", "%comet_cult_credits.manager.parameters%"]
