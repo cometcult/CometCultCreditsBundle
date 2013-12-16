@@ -8,6 +8,9 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 
 class CreditsManager implements CreditsManagerInterface
 {
+    /**
+     * @var DocumentManager
+     */
     protected $dm;
 
     /**
@@ -21,12 +24,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Create Credit instance
-     *
-     * @param int    $amount  amount
-     * @param string $ownerId ownerId
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function createCredit($amount, $ownerId)
     {
@@ -38,11 +36,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Update credit and persist in store
-     *
-     * @param Credit $credit
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function updateCredit(Credit $credit)
     {
@@ -53,11 +47,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Reload credit
-     *
-     * @param Credit $credit
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function reloadCredit(Credit $credit)
     {
@@ -67,26 +57,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Get curent credit balance
-     *
-     * @param string $ownerId
-     *
-     * @return int
-     */
-    public function getCreditBalance($ownerId)
-    {
-        $credit = $this->getCreditByOwnerId($ownerId);
-
-        return $credit ? $credit->getAmount() : 0;
-    }
-
-    /**
-     * Add amount to current credit
-     *
-     * @param int    $amount  amount
-     * @param string $ownerId ownerId
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function addCredit($amount, $ownerId)
     {
@@ -104,12 +75,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Subtract amount from current credit
-     *
-     * @param int    $amount  amount
-     * @param string $ownerId ownerId
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function subtractCredit($amount, $ownerId)
     {
@@ -127,11 +93,7 @@ class CreditsManager implements CreditsManagerInterface
     }
 
     /**
-     * Get credit by ownerId
-     *
-     * @param string $ownerId
-     *
-     * @return Credit
+     * {@inheritdoc}
      */
     public function getCreditByOwnerId($ownerId)
     {

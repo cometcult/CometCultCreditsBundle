@@ -22,13 +22,6 @@ interface CreditsManagerInterface
     public function updateCredit(Credit $credit);
 
     /**
-     * @param string $ownerId
-     *
-     * @return int
-     */
-    public function getCreditBalance($ownerId);
-
-    /**
      * @param int    $amount  amount
      * @param string $ownerId ownerId
      *

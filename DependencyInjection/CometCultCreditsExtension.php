@@ -22,6 +22,13 @@ class CometCultCreditsExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        if (isset($config['min_threshold'])) {
+            $container->setParameter('comet_cult_credits.min_threshold', $config['min_threshold']);
+        }
+        if (isset($config['max_threshold'])) {
+            $container->setParameter('comet_cult_credits.max_threshold', $config['max_threshold']);
+        }
+
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }

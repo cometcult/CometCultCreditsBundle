@@ -60,6 +60,29 @@ $creditsManager->updateCredit($credit);
 Basic operations should be performed providing {ownerId} and amount of credit if needed
 
 ```php
-$creditsManager->getCreditBalance('abc123');
 $creditsManager->addCredit(100, 'abc123');
+$creditsManager->subtractCredit(42, 'abc123');
+```
+
+You can always check the balance of a user with the BalanceChecker
+
+```php
+$creditBalanceChecker = $this->get('comet_cult_credits.balance_checker');
+$creditBalanceChecker->getCreditBalance('abc123');
+```
+
+Or check against a configurable threshold. By default the minimum threshold is 0 and maximum threshold is 100
+
+```php
+$creditBalanceChecker->hasLowCreditBalance('abc123');
+```
+
+Configuration
+-------------
+
+You can configure your own threshold values. To do that just add to your Symfony config:
+```yml
+comet_cult_credit:
+	min_threshold: 0 # min value of your choice
+	max_threshold: 100 # max value of your choice
 ```

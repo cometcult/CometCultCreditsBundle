@@ -55,51 +55,6 @@ class CreditsManagerSpec extends ObjectBehavior
      * @param Doctrine\ODM\MongoDB\DocumentManager    $documentManager
      * @param Doctrine\ODM\MongoDB\DocumentRepository $creditRepository
      */
-    function it_should_return_credit_balance($credit, $documentManager, $creditRepository)
-    {
-        $documentManager
-            ->getRepository('CometCultCreditsBundle:Credit')
-            ->shouldBeCalled()
-            ->willReturn($creditRepository);
-
-        $creditRepository
-            ->findOneBy(array('ownerId' => '123abc'))
-            ->shouldBeCalled()
-            ->willReturn($credit);
-        
-        $credit
-            ->getAmount()
-            ->shouldBeCalled()
-            ->willReturn(200);
-
-        $this->getCreditBalance('123abc')->shouldReturn(200);
-    }
-
-    /**
-     * @param CometCult\CreditsBundle\Document\Credit $credit
-     * @param Doctrine\ODM\MongoDB\DocumentManager    $documentManager
-     * @param Doctrine\ODM\MongoDB\DocumentRepository $creditRepository
-     */
-    function it_should_return_credit_balance_zero_when_no_credit($credit, $documentManager, $creditRepository)
-    {
-        $documentManager
-            ->getRepository('CometCultCreditsBundle:Credit')
-            ->shouldBeCalled()
-            ->willReturn($creditRepository);
-
-        $creditRepository
-            ->findOneBy(array('ownerId' => '123abc'))
-            ->shouldBeCalled()
-            ->willReturn(null);
-
-        $this->getCreditBalance('123abc')->shouldReturn(0);
-    }
-
-    /**
-     * @param CometCult\CreditsBundle\Document\Credit $credit
-     * @param Doctrine\ODM\MongoDB\DocumentManager    $documentManager
-     * @param Doctrine\ODM\MongoDB\DocumentRepository $creditRepository
-     */
     function it_should_add_credit($credit, $documentManager, $creditRepository)
     {
         $documentManager
@@ -119,7 +74,7 @@ class CreditsManagerSpec extends ObjectBehavior
             ->findOneBy(array('ownerId' => '123abc'))
             ->shouldBeCalled()
             ->willReturn($credit);
-        
+
         $credit
             ->getAmount()
             ->shouldBeCalled()
@@ -190,7 +145,7 @@ class CreditsManagerSpec extends ObjectBehavior
             ->findOneBy(array('ownerId' => '123abc'))
             ->shouldBeCalled()
             ->willReturn($credit);
-        
+
         $credit
             ->getAmount()
             ->shouldBeCalled()
